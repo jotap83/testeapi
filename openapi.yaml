@@ -1,0 +1,2665 @@
+openapi: 3.0.1
+paths:
+  /apianexacao/documento:
+    get:
+      operationId: obterListaDocumentos
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apianexacao/tipoProcesso:
+    get:
+      operationId: obterListaTiposProcesso
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apianexacao/processo-validar/{numeroProcesso}:
+    get:
+      operationId: verificarNumeroProcessoValido
+      parameters:
+      - name: numeroProcesso
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apianexacao/palavra-chave/{codigoDocumento}:
+    get:
+      operationId: obterPalavrasChave
+      parameters:
+      - name: codigoDocumento
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apianexacao/criar-vincular/{numeroDuimp}:
+    get:
+      operationId: obterURLDossie
+      parameters:
+      - name: numeroDuimp
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apicalculo/frete/item/{numeroItem}:
+    get:
+      operationId: calculoFrete
+      parameters:
+      - name: numeroItem
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apicalculo/seguro/item/{numeroItem}:
+    get:
+      operationId: calculoSeguro
+      parameters:
+      - name: numeroItem
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apicarga/{identificacaoCarga}:
+    get:
+      operationId: obterCarga
+      parameters:
+      - name: identificacaoCarga
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiduimp/{numero}/consulta:
+    get:
+      operationId: consultarDuimp
+      parameters:
+      - name: numero
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiduimp/{numero}/{versaoDuimp}/consulta:
+    get:
+      operationId: consultarDuimp_1
+      parameters:
+      - name: numero
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: versaoDuimp
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiduimp/consulta:
+    post:
+      operationId: listarDuimpConsulta
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/FiltroPesquisaDuimpCover'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiduimp/recuperar-duimp-por-parametros:
+    post:
+      operationId: listarDuimpEmElaboracao
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/FiltroPesquisaDuimpCover'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiduimp/{numDuimp}/{versaoDuimp}/item/{numItem}/consulta:
+    get:
+      operationId: consultarItem
+      parameters:
+      - name: numDuimp
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: versaoDuimp
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: numItem
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiduimp/{numDuimp}/item/{numItem}/consulta:
+    get:
+      operationId: consultarItem_1
+      parameters:
+      - name: numDuimp
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: numItem
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiduimp/{numDuimp}/{versaoDuimp}/item:
+    get:
+      operationId: listarItem
+      parameters:
+      - name: numDuimp
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: versaoDuimp
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiduimp/{numeroDuimp}/evento:
+    get:
+      operationId: listarEventos
+      parameters:
+      - name: numeroDuimp
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiduimp/{numero}/consulta/exigencia:
+    get:
+      operationId: consultarExigenciasDuimp
+      parameters:
+      - name: numero
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiduimp/diagnostico/consultar-por-parametros:
+    post:
+      operationId: listarDuimpEmElaboracao_1
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/FiltroPesquisaDiagnosticoCover'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiduimp/diagnostico/executar:
+    post:
+      operationId: executarDiagnostico
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/DuimpCover'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiduimp/{numeroDuimp}/diagnostico/consultar:
+    get:
+      operationId: obterDiagnostico
+      parameters:
+      - name: numeroDuimp
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiduimp/{numeroDuimp}/diagnostico/verificar:
+    get:
+      operationId: verificarDiagnostico
+      parameters:
+      - name: numeroDuimp
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiduimp/{numDuimp}/item:
+    get:
+      operationId: listarItem_1
+      parameters:
+      - name: numDuimp
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiduimp/salvar:
+    post:
+      operationId: salvar
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DuimpCover'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiduimp/{numero}:
+    get:
+      operationId: obterDuimp
+      parameters:
+      - name: numero
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiduimp/{numero}/verificar-registro:
+    get:
+      operationId: verificarRegistro
+      parameters:
+      - name: numero
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiduimp/{numero}/confirmar-registro/{opcao}:
+    get:
+      operationId: confirmarRegistro
+      parameters:
+      - name: numero
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: opcao
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiduimp/retificar:
+    put:
+      operationId: retificar
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DuimpCover'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiduimp/{numDuimp}/pesoLiquido:
+    get:
+      operationId: obterPesoLiquido
+      parameters:
+      - name: numDuimp
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiduimp/{numDuimp}/relacaoDuimpDI:
+    get:
+      operationId: obterAdicoes
+      parameters:
+      - name: numDuimp
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiduimp/{numDuimp}/valorMercadoriaLocalEmbarque:
+    get:
+      operationId: obterValorMercadoriaLocalEmbarqueTotal
+      parameters:
+      - name: numDuimp
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiduimp/{numDuimp}/contaAtiva/{cpfCnpjImportador}:
+    get:
+      operationId: obterContaAtiva
+      parameters:
+      - name: numDuimp
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: cpfCnpjImportador
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiduimp/{numeroDuimp}/tributos:
+    get:
+      operationId: obterTributo
+      parameters:
+      - name: numeroDuimp
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiduimp/{numDuimp}/item/{numItem}:
+    get:
+      operationId: obterItem
+      parameters:
+      - name: numDuimp
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: numItem
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiduimp/{numDuimp}/item/{numItem}/valoresCalculados:
+    get:
+      operationId: obterValoresCalculados
+      parameters:
+      - name: numDuimp
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: numItem
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+    post:
+      operationId: obterValoresCalculados_1
+      parameters:
+      - name: numDuimp
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: numItem
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/ItemCover'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiduimp/{numDuimp}/item/incluir:
+    post:
+      operationId: incluirItem
+      parameters:
+      - name: numDuimp
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemCover'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiduimp/{numDuimp}/item/{numItem}/salvar:
+    post:
+      operationId: salvarItem
+      parameters:
+      - name: numDuimp
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: numItem
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemCover'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiduimp/{numDuimp}/item/{numItem}/excluir:
+    delete:
+      operationId: excluirItem
+      parameters:
+      - name: numDuimp
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: numItem
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiduimp/consulta/conferencia:
+    post:
+      operationId: listarDuimpParaConferencia
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/FiltroDuimpConferenciaCover'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiduimp/registrar:
+    post:
+      operationId: registrar
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DuimpCover'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiduimp/{numeroDuimp}/registrar:
+    post:
+      operationId: registrar_1
+      parameters:
+      - name: numeroDuimp
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiduimp-lel/{numero}/consulta-lel-numero:
+    get:
+      operationId: gravarEventoConsultaPorNumero
+      parameters:
+      - name: numero
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apilog/erro:
+    post:
+      operationId: logar
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LogErroCover'
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*': {}
+  /apitabelas/interveniente/{codigo}/oea:
+    get:
+      operationId: intervenientePossuiOEA
+      parameters:
+      - name: codigo
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/interveniente/{codigo}:
+    get:
+      operationId: obterDadosInterveniente
+      parameters:
+      - name: codigo
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/moeda/{codigo}/detalhe:
+    get:
+      operationId: obterMoeda
+      parameters:
+      - name: codigo
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/moeda/{codigo}/detalhe/{data}:
+    get:
+      operationId: obterMoeda_1
+      parameters:
+      - name: codigo
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: data
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/moeda:
+    get:
+      operationId: listarMoedas
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/moeda/{data}:
+    get:
+      operationId: listarMoedas_1
+      parameters:
+      - name: data
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/verificar-mercosul/{codigoPais}:
+    get:
+      operationId: verificarPaisMercosul
+      parameters:
+      - name: codigoPais
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/pais/{codigo}/detalhe:
+    get:
+      operationId: obterPais
+      parameters:
+      - name: codigo
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/pais/{codigo}/detalhe/{data}:
+    get:
+      operationId: obterPais_1
+      parameters:
+      - name: codigo
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: data
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/pais/{data}:
+    get:
+      operationId: listarPaises
+      parameters:
+      - name: data
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/pais:
+    get:
+      operationId: listarPaises_1
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/paismercosul:
+    get:
+      operationId: listarPaisesMercosul
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/pais-sigla/{sigla}/detalhe:
+    get:
+      operationId: obterPaisIsoSigla
+      parameters:
+      - name: sigla
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/urf/{codigo}/detalhe:
+    get:
+      operationId: obterOrgaoRFB
+      parameters:
+      - name: codigo
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/urf/{codigo}/detalhe/{data}:
+    get:
+      operationId: obterOrgaoRFB_1
+      parameters:
+      - name: codigo
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: data
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/urf/{data}:
+    get:
+      operationId: listarURF
+      parameters:
+      - name: data
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/urf:
+    get:
+      operationId: listarURF_1
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/recinto/{codigo}/detalhe/{data}:
+    get:
+      operationId: obterRecintoAduaneiro
+      parameters:
+      - name: codigo
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: data
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/recinto/{codigo}/detalhe:
+    get:
+      operationId: obterRecintoAduaneiro_1
+      parameters:
+      - name: codigo
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/urf/{codigo}/recintos/{data}:
+    get:
+      operationId: listarRecintosURF
+      parameters:
+      - name: codigo
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: data
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/urf/{codigo}/recintos:
+    get:
+      operationId: listarRecintosURF_1
+      parameters:
+      - name: codigo
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/ncm/{codigo}/detalhe:
+    get:
+      operationId: obterNCM
+      parameters:
+      - name: codigo
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/ncm/{codigo}/detalhe/{data}:
+    get:
+      operationId: obterNCM_1
+      parameters:
+      - name: codigo
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: data
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/viatransporte:
+    get:
+      operationId: listarViatransporte
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/viatransporte/{data}:
+    get:
+      operationId: listarViatransporte_1
+      parameters:
+      - name: data
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/tipoembalagem/{codigo}/detalhe/{data}:
+    get:
+      operationId: obterTipoEmbalagem
+      parameters:
+      - name: codigo
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: data
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/tipoembalagem/{codigo}/detalhe:
+    get:
+      operationId: obterTipoEmbalagem_1
+      parameters:
+      - name: codigo
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/obter-cpf:
+    get:
+      operationId: obterCPF
+      parameters:
+      - name: cpf
+        in: query
+        schema:
+          type: string
+          default: ""
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/obter-cnpj:
+    get:
+      operationId: obterCNPJ
+      parameters:
+      - name: cnpj
+        in: query
+        schema:
+          type: string
+          default: ""
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/tipoembalagem/{data}:
+    get:
+      operationId: listarTipoEmbalagem
+      parameters:
+      - name: data
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/tipoembalagem:
+    get:
+      operationId: listarTipoEmbalagem_1
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/urf/{codigo}/servidores/{data}:
+    get:
+      operationId: listarServidoresLocal
+      parameters:
+      - name: codigo
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: data
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/urf/{codigo}/servidores:
+    get:
+      operationId: listarServidoresLocal_1
+      parameters:
+      - name: codigo
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/cnpj/{codigo}/detalhe/{data}:
+    get:
+      operationId: obterDadosCNPJ
+      parameters:
+      - name: codigo
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: data
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/cnpj/{codigo}/detalhe:
+    get:
+      operationId: obterDadosCNPJ_1
+      parameters:
+      - name: codigo
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/cpf/{codigo}/detalhe:
+    get:
+      operationId: obterDadosCPF
+      parameters:
+      - name: codigo
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/cpf/{codigo}/detalhe/{data}:
+    get:
+      operationId: obterDadosCPF_1
+      parameters:
+      - name: codigo
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: data
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/condicaovenda/{data}:
+    get:
+      operationId: listarCondicoesVenda
+      parameters:
+      - name: data
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/condicaovenda:
+    get:
+      operationId: listarCondicoesVenda_1
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/obter-ncm:
+    get:
+      operationId: obterNCMvelho
+      parameters:
+      - name: ncm
+        in: query
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/instituicao-financeira/{cnpj}/{data}:
+    get:
+      operationId: obterInstituicaoFinanceira
+      parameters:
+      - name: cnpj
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: data
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/instituicao-financeira/{cnpj}:
+    get:
+      operationId: obterInstituicaoFinanceira_1
+      parameters:
+      - name: cnpj
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/tipo-conteiner/{codigo}/{data}:
+    get:
+      operationId: obterTipoConteiner
+      parameters:
+      - name: codigo
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: data
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/tipo-conteiner/{codigo}:
+    get:
+      operationId: obterTipoConteiner_1
+      parameters:
+      - name: codigo
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/receita-tributaria/{codigo}:
+    get:
+      operationId: obterReceitaTributaria
+      parameters:
+      - name: codigo
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/receita-tributaria/{codigo}/{data}:
+    get:
+      operationId: obterReceitaTributaria_1
+      parameters:
+      - name: codigo
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: data
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/listar-receitas-tributarias:
+    get:
+      operationId: listarReceitasTributarias
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/listar-receitas-tributarias/{data}:
+    get:
+      operationId: listarReceitasTributarias_1
+      parameters:
+      - name: data
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/listar-instituicoes-financiadoras/{data}:
+    get:
+      operationId: listarInstituicoesFinanciadoras
+      parameters:
+      - name: data
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/listar-instituicoes-financiadoras:
+    get:
+      operationId: listarInstituicoesFinanciadoras_1
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/listar-motivos-cobertura/{data}:
+    get:
+      operationId: listarMotivosCoberturaCambial
+      parameters:
+      - name: data
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/listar-motivos-cobertura:
+    get:
+      operationId: listarMotivosCoberturaCambial_1
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/listar-metodos-valoracao:
+    get:
+      operationId: listarMetodosValoracaoAduaneira
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/listar-metodos-valoracao/{data}:
+    get:
+      operationId: listarMetodosValoracaoAduaneira_1
+      parameters:
+      - name: data
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/listar-acrescimos-valoracao:
+    get:
+      operationId: listarAcrescimosValoracaoAduaneira
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/listar-acrescimos-valoracao/{data}:
+    get:
+      operationId: listarAcrescimosValoracaoAduaneira_1
+      parameters:
+      - name: data
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/listar-acrescimos-valoracao-por-incoterm/{incoterm}:
+    get:
+      operationId: listarAcrescimosValoracaoAduaneiraPorIncoterm
+      parameters:
+      - name: incoterm
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/listar-deducoes-valoracao:
+    get:
+      operationId: listarDeducoesValoracaoAduaneira
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/listar-deducoes-valoracao/{data}:
+    get:
+      operationId: listarDeducoesValoracaoAduaneira_1
+      parameters:
+      - name: data
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitabelas/listar-deducoes-valoracao-por-incoterm/{incoterm}:
+    get:
+      operationId: listarDeducoesValoracaoAduaneiraPorIncoterm
+      parameters:
+      - name: incoterm
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiteste/carg:
+    get:
+      operationId: carga
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiteste/suce:
+    get:
+      operationId: suce
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiteste/catp:
+    get:
+      operationId: catp
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiteste/cada:
+    get:
+      operationId: cada
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiteste/coad:
+    get:
+      operationId: coad
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiteste/oeac:
+    get:
+      operationId: oea
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiteste/cint:
+    get:
+      operationId: cint
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiteste/anex:
+    get:
+      operationId: anex
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiteste/gris:
+    get:
+      operationId: gris
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiteste/cctr:
+    get:
+      operationId: cctr
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiteste/pcce:
+    get:
+      operationId: pcce
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiteste/ttce:
+    get:
+      operationId: ttce
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiteste/versionar/{numero}:
+    get:
+      operationId: testVersionamento
+      parameters:
+      - name: numero
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiteste/fila:
+    get:
+      operationId: testPostagemFilas
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiteste/fila/vinculacao:
+    get:
+      operationId: vincular
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiteste/fila/desvinculacao:
+    get:
+      operationId: desvincular
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiteste/dv/simulacao/{numeroDuimp}:
+    get:
+      operationId: testApesDV
+      parameters:
+      - name: numeroDuimp
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*': {}
+  /apiteste/dv/resultado:
+    get:
+      operationId: testApesDV_1
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiteste/all:
+    get:
+      operationId: all
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitributo/fundamentos:
+    post:
+      operationId: obterListaFundamento
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/TributoRequest'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitributo/tributos:
+    post:
+      operationId: obterTributos
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/TributoRequest'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitributo/atributos:
+    post:
+      operationId: obterAtributos
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/AtributoDinamicoRequest'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitributo/calcular/{numeroDuimp}/automatico:
+    post:
+      operationId: calcularTributosAutomatico
+      parameters:
+      - name: numeroDuimp
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/CalculoRequest'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apitributo/calcular/{numeroDuimp}:
+    post:
+      operationId: calcularTributos
+      parameters:
+      - name: numeroDuimp
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/CalculoRequest'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiusuario/representacoes:
+    get:
+      operationId: listarRepresentacoes
+      parameters:
+      - name: modo
+        in: query
+        schema:
+          type: string
+          default: CNPJ
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiusuario/listar-cnpjs-representacao-formatado:
+    get:
+      operationId: listarCnpjsRepresentacoesFormatado
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiusuario/representa:
+    get:
+      operationId: obterRepresentado
+      parameters:
+      - name: identificacao
+        in: query
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiusuario/verifica-representacao:
+    get:
+      operationId: isRepresentado
+      parameters:
+      - name: identificacao
+        in: query
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiconfig/versao:
+    get:
+      operationId: all_1
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiext/obterDuimpSefaz:
+    get:
+      operationId: obterDuimp_1
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiext/sefaz/duimp/{numeroDuimp}:
+    get:
+      summary: Consulta os dados da versão vigente de uma DUIMP registrada. Disponível apenas para as Secretarias de Fazenda (SEFAZ).
+      operationId: consultarDuimp_2
+      parameters:
+      - name: numeroDuimp
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: The user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DuimpCover'
+        400:
+          description: User not found
+  /apiext/sefaz/duimp/{numeroDuimp}/{versaoDuimp}:
+    get:
+      operationId: consultarDuimp_3
+      parameters:
+      - name: numeroDuimp
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: versaoDuimp
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiint/duimp/{numeroDuimp}/dadoscarga:
+    get:
+      operationId: obterDadosDuimpCarga
+      parameters:
+      - name: numeroDuimp
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiint/duimp/{numeroDuimp}/pendenciascarga:
+    get:
+      operationId: verificarPendenciaEntregaCarga
+      parameters:
+      - name: numeroDuimp
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: codigoURF
+        in: query
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiautenticar:
+    get:
+      operationId: autenticarUsuario
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apiautenticar/sistema:
+    get:
+      operationId: autenticarSistema
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+components:
+  schemas:
+    CondicaoVendaMercadoriaCover:
+      type: object
+      properties:
+        metodoValoracao:
+          type: integer
+          format: int32
+        incoterm:
+          type: string
+        incotermComplemento:
+          type: string
+        acrescimosDeducoes:
+          type: array
+          items:
+            $ref: '#/components/schemas/AcrescimoDeducaoCover'
+    CertificadoMercosul:
+      type: object
+      properties:
+        tipoCertificadoMercosul:
+          type: string
+        numeroCertificado:
+          type: string
+        quantidadeUnidadeEstatisticaCertificado:
+          type: number
+    ItemCover:
+      type: object
+      properties:
+        caracterizacaoImportacao:
+          $ref: '#/components/schemas/CaracterizacaoImportacaoCover'
+        dadosProduto:
+          $ref: '#/components/schemas/ProdutoCover'
+        dadosExportadorEstrangeiro:
+          $ref: '#/components/schemas/ExportadorEstrangeiroCover'
+        informacoesComplementares:
+          $ref: '#/components/schemas/InformacaoComplementarCover'
+        declaracoesExportacaoEstrangeira:
+          type: array
+          items:
+            $ref: '#/components/schemas/CertificadoMercosul'
+        declaracoesAduaneiraVinculadas:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeclaracaoVinculada'
+        condicaoVendaMercadoria:
+          $ref: '#/components/schemas/CondicaoVendaMercadoriaCover'
+        dadosCambiais:
+          $ref: '#/components/schemas/DadosCambiaisCover'
+        itemTributo:
+          $ref: '#/components/schemas/ItemTributoCover'
+    CalculoRequest:
+      type: object
+      properties:
+        codigoNCM:
+          type: string
+        codigoPais:
+          type: string
+        baseCalculo:
+          type: number
+        cnpjImportador:
+          type: string
+        quantidadeUnidadeEstatistica:
+          type: number
+        pesoLiquido:
+          type: number
+        tributosAplicados:
+          type: array
+          items:
+            $ref: '#/components/schemas/TributoAplicadoCover'
+    DeclaracaoExportacaoEstrangeiraCover:
+      type: object
+      properties:
+        numeroDeclaracao:
+          type: string
+        faixaItemInicial:
+          type: string
+        faixaItemFinal:
+          type: string
+    FiltroDuimpConferenciaCover:
+      type: object
+      properties:
+        orgao:
+          type: string
+        unidade:
+          type: string
+        recinto:
+          type: string
+        distribuida:
+          type: boolean
+        paraDistribuicao:
+          type: boolean
+        cpf:
+          type: string
+        numeroDuimp:
+          type: string
+        versao:
+          type: integer
+          format: int32
+        canais:
+          type: array
+          items:
+            type: integer
+            format: int32
+    InformacaoComplementarCover:
+      type: object
+      properties:
+        atributosDinamicos:
+          type: array
+          items:
+            $ref: '#/components/schemas/AtributoCover'
+        descricaoComplementarMercadoria:
+          type: string
+    AtributoCover:
+      type: object
+      properties:
+        codigo:
+          type: string
+        valor:
+          type: string
+    ItemResumidoCover:
+      type: object
+      properties:
+        id:
+          type: string
+        numeroDuimp:
+          type: string
+        versaoDuimp:
+          type: string
+        numeroItem:
+          type: string
+        codigoProduto:
+          type: string
+        cnpjRaizProduto:
+          type: string
+        versaoProduto:
+          type: string
+        indicadorAdquirente:
+          $ref: '#/components/schemas/ItemDominioGenericCoverString'
+        ncm:
+          $ref: '#/components/schemas/ItemDominioGenericCoverString'
+        identificacaoAdquirente:
+          $ref: '#/components/schemas/ItemDominioGenericCoverString'
+        produto:
+          $ref: '#/components/schemas/Produto'
+    Embalagem:
+      type: object
+      properties:
+        item:
+          type: string
+        tipo:
+          type: string
+        quantidade:
+          type: integer
+          format: int32
+        peso:
+          type: number
+        indicadorPerigo:
+          type: boolean
+        classePerigo:
+          type: string
+        indicadorMadeira:
+          type: boolean
+        caracteristicaMadeira:
+          type: string
+    DocumentoInstrucaoCover:
+      type: object
+      properties:
+        tipo:
+          $ref: '#/components/schemas/ItemDominioGenericCoverString'
+        palavrasChave:
+          type: array
+          items:
+            $ref: '#/components/schemas/PalavraChaveCover'
+    ValorMercadoriaCover:
+      type: object
+      properties:
+        valorMercadoria:
+          type: number
+        valorFreteRateado:
+          type: number
+        valorSeguroRateado:
+          type: number
+        valorAduaneiro:
+          type: number
+    Tributo:
+      type: object
+      properties:
+        tipo:
+          $ref: '#/components/schemas/ItemDominioGenericCoverString'
+        baseCalculo:
+          type: number
+        aliquotaTipoCodigo:
+          type: number
+        aliquotaTipoNome:
+          type: number
+        valorCalculado:
+          type: number
+        valorDevido:
+          type: number
+        valorReduzido:
+          type: number
+        valorSuspenso:
+          type: number
+        valorARecolher:
+          type: number
+    DadosCambiaisCover:
+      type: object
+      properties:
+        coberturaCambial:
+          type: integer
+          format: int32
+        instituicaoFinanceira:
+          type: integer
+          format: int32
+        valorCoberturaCambial:
+          type: number
+        numeroROFBacen:
+          type: string
+        motivoSemCobertura:
+          type: string
+    DuimpCover:
+      type: object
+      properties:
+        numeroDeclaracao:
+          exclusiveMaximum: true
+          maxLength: 15
+          type: string
+          description: Número da Duimp
+          format: 00AA00000000000
+          example: 19BR00000004677
+        versaoDeclaracao:
+          type: string
+        situacaoDeclaracao:
+          type: string
+        versaoDeclaracaoVigente:
+          type: string
+        dataHoraCriacao:
+          type: string
+          format: date-time
+        dataHoraRegistro:
+          type: string
+          format: date-time
+        dataHoraRegistroVersaoVigente:
+          type: string
+          format: date-time
+        cpfResponsavel:
+          type: string
+        tipoImportador:
+          type: string
+        niImportador:
+          type: integer
+          format: int64
+        nomeImportador:
+          type: string
+        ufImportador:
+          type: string
+        canalSelecao:
+          type: integer
+          format: int32
+        dadosCarga:
+          $ref: '#/components/schemas/CargaCover'
+        documentosInstrutivoDespacho:
+          type: array
+          items:
+            $ref: '#/components/schemas/DocumentoInstrucaoCover'
+        processosVinculados:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProcessoCover'
+        docDeclaracoesExportacaoEstrangeira:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeclaracaoExportacaoEstrangeiraCover'
+        valorTotalMercadoriaLocalEmbarque:
+          $ref: '#/components/schemas/ValorMercadoriaLocalEmbarqueCover'
+        dadosTributos:
+          $ref: '#/components/schemas/DadosTributosCover'
+        pagamentosDebitoConta:
+          type: array
+          items:
+            $ref: '#/components/schemas/PagamentoCover'
+        itensHistorico:
+          type: array
+          items:
+            $ref: '#/components/schemas/DuimpHistEventoCover'
+        itens:
+          type: array
+          items:
+            $ref: '#/components/schemas/ItemCover'
+      description: Dados da Duimp para a SEFAZ
+    EnderecoCover:
+      type: object
+      properties:
+        logradouro:
+          type: string
+        bairro:
+          type: string
+        municipio:
+          type: string
+        cep:
+          type: string
+        uf:
+          type: string
+    FiltroPesquisaDuimpCover:
+      type: object
+      properties:
+        cpf:
+          type: string
+        importador:
+          type: string
+        inicio:
+          type: string
+          format: date
+        fim:
+          type: string
+          format: date
+    ItemDominioGenericCover:
+      type: object
+      properties:
+        codigo:
+          type: object
+        descricao:
+          type: string
+    LogErroCover:
+      type: object
+      properties:
+        url:
+          type: string
+        mensagem:
+          type: string
+        causa:
+          type: string
+        stacktrace:
+          type: string
+        browser:
+          type: string
+    CalculoTributoCover:
+      type: object
+      properties:
+        imposto:
+          $ref: '#/components/schemas/ItemDominioGenericCoverString'
+        fundamentoLegalNormal:
+          $ref: '#/components/schemas/ItemDominioGenericCoverString'
+        valorBaseCalculo:
+          type: number
+        valorBaseCalculoEspecifica:
+          type: number
+        valorBaseCalculoReduzida:
+          type: number
+        percReducaoBaseCalculo:
+          type: number
+        tipoAliquota:
+          $ref: '#/components/schemas/ItemDominioGenericCoverString'
+        valorAliquota:
+          type: number
+        valorAliquotaEspecifica:
+          type: number
+        valorAliquotaReduzida:
+          type: number
+        percReducaoAliquotaReduzida:
+          type: number
+        valorCalculado:
+          type: number
+        valorAReduzir:
+          type: number
+        valorDevido:
+          type: number
+        valorSuspenso:
+          type: number
+        impostoARecolher:
+          type: number
+        valorNormal:
+          type: number
+        indicadorTributado:
+          type: integer
+          format: int32
+    DeclaracaoVinculada:
+      type: object
+      properties:
+        tipo:
+          type: string
+        numero:
+          type: string
+        numeroItem:
+          type: string
+    DadosTributosCover:
+      type: object
+      properties:
+        indicadorCumprimentoICMS:
+          type: string
+        tributosCalculados:
+          type: array
+          items:
+            $ref: '#/components/schemas/TributoCalculadoCover'
+        quantidadeAdicoes:
+          type: integer
+          format: int32
+        taxaUtilizacao:
+          type: number
+    DuimpHistEventoCover:
+      type: object
+      properties:
+        numeroDuimp:
+          type: string
+        versaoDuimp:
+          type: integer
+          format: int32
+        evento:
+          type: string
+        dataHora:
+          type: string
+          format: date-time
+    ItemTributoCover:
+      type: object
+      properties:
+        valorMercadoria:
+          $ref: '#/components/schemas/ValorMercadoriaCover'
+        tributosAplicados:
+          type: array
+          items:
+            $ref: '#/components/schemas/TributoAplicadoCover'
+        calculosTributos:
+          type: array
+          items:
+            $ref: '#/components/schemas/CalculoTributoCover'
+        dadosMercadoria:
+          $ref: '#/components/schemas/DadosMercadoriaCover'
+    CaracterizacaoImportacaoCover:
+      type: object
+      properties:
+        numeroItem:
+          type: string
+        indicadorImportacaoTerceiros:
+          type: integer
+          format: int32
+        cnpjAdquirente:
+          type: string
+        ufAdquirente:
+          type: string
+        nomeAdquirente:
+          type: string
+    Produto:
+      type: object
+      properties:
+        codigo:
+          type: string
+        versao:
+          type: string
+        situacao:
+          type: string
+          enum:
+          - Ativado
+          - Desativado
+          - Rascunho
+        descricao:
+          type: string
+        cnpjRaiz:
+          type: string
+        ncm:
+          type: string
+        paisOrigemMercosul:
+          type: boolean
+        paisOrigem:
+          type: string
+        paisOrigemCodigo:
+          type: string
+        paisOrigemNome:
+          type: string
+        cpfCnpjFabricante:
+          type: string
+        fabricanteConhecido:
+          type: boolean
+        operadorEstrangeiro:
+          $ref: '#/components/schemas/OperadorEstrangeiro'
+        atributos:
+          type: array
+          items:
+            $ref: '#/components/schemas/AtributoValor'
+    DadosMercadoriaCover:
+      type: object
+      properties:
+        tipoAplicacao:
+          type: integer
+          format: int32
+        condicao:
+          type: integer
+          format: int32
+        quantidadeUnidadeEstatistica:
+          type: number
+        pesoLiquido:
+          type: number
+        unidadeComercializada:
+          type: string
+        quantidadeUnidadeComercializada:
+          type: number
+        moedaNegociada:
+          type: integer
+          format: int32
+        valorUnitarioCondicaoVenda:
+          type: number
+        valorMercadoriaCondicaoVendaMoedaNegociada:
+          type: number
+        valorMercadoriaCondicaoVendaReal:
+          type: number
+    Frete:
+      type: object
+      properties:
+        pagamento:
+          type: string
+        tipo:
+          type: string
+        moeda:
+          $ref: '#/components/schemas/ItemDominioGenericCoverString'
+        valor:
+          type: number
+    ProdutoCover:
+      type: object
+      properties:
+        codigoProduto:
+          type: string
+        versaoProduto:
+          type: string
+        cnpjProduto:
+          type: string
+        codigoNCM:
+          type: string
+        paisOrigem:
+          type: string
+    ProcessoCover:
+      type: object
+      properties:
+        tipo:
+          $ref: '#/components/schemas/ItemDominioGenericCoverString'
+        numeroProcesso:
+          type: string
+    PagamentoCover:
+      type: object
+      properties:
+        versaoDuimpPagamento:
+          type: string
+        banco:
+          type: string
+        agencia:
+          type: string
+        conta:
+          type: string
+        codigoReceita:
+          type: string
+        descricaoReceita:
+          type: string
+        valorTributo:
+          type: number
+        dataHoraPagamento:
+          type: string
+          format: date-time
+    AtributoTributoCover:
+      type: object
+      properties:
+        codigo:
+          type: string
+        valor:
+          type: string
+        descricao:
+          type: string
+        tipoAtributo:
+          type: string
+        tipoCampoAdicional:
+          type: string
+    AtributoValor:
+      type: object
+      properties:
+        atributo:
+          type: string
+        nomeApresentacao:
+          type: string
+        valor:
+          type: string
+        codigoValor:
+          type: string
+    CargaCover:
+      type: object
+      properties:
+        identificacaoCarga:
+          type: string
+        numeroRUC:
+          type: string
+        uaLocalizacaoCarga:
+          type: string
+        ufLocalizacaoCarga:
+          type: string
+        codRecintoLocalizacaoCarga:
+          type: string
+        uaAnaliseFiscal:
+          type: string
+        ufAnaliseFiscal:
+          type: string
+        uaEntradaCarga:
+          type: string
+        ufEntradaCarga:
+          type: string
+        viaTransporte:
+          type: string
+        tipoConhecimento:
+          type: string
+        descTipoConhecimento:
+          type: string
+        paisProcedencia:
+          type: string
+        dataChegada:
+          type: string
+          format: date-time
+        pesoLiquido:
+          type: number
+        moedaFreteTotal:
+          type: integer
+          format: int32
+        valorFreteTotalMoedaUtiliza:
+          type: number
+        valorFreteTotalEmReal:
+          type: number
+        valorAFRMMDevido:
+          type: number
+        valorAFRMMPago:
+          type: number
+        indicadorAFRMMQuitado:
+          type: integer
+          format: int32
+        moedaSeguro:
+          type: integer
+          format: int32
+        valorSeguroMoedaUtilizada:
+          type: number
+        valorSeguroEmReal:
+          type: number
+    ComplementoValor:
+      type: object
+      properties:
+        tipo:
+          $ref: '#/components/schemas/ItemDominioGenericCoverString'
+        denominacao:
+          $ref: '#/components/schemas/ItemDominioGenericCoverString'
+        valor:
+          type: number
+        moeda:
+          $ref: '#/components/schemas/ItemDominioGenericCoverString'
+        valorReal:
+          type: number
+    AcrescimoDeducaoCover:
+      type: object
+      properties:
+        tipoOperacao:
+          type: integer
+          format: int32
+        codigo:
+          type: integer
+          format: int32
+        valor:
+          type: number
+        valorReal:
+          type: number
+        textoComplementar:
+          type: string
+        moeda:
+          type: integer
+          format: int32
+    ItemDominioGenericCoverString:
+      type: object
+      properties:
+        codigo:
+          type: string
+        descricao:
+          type: string
+    OperadorEstrangeiro:
+      type: object
+      properties:
+        cnpjRaiz:
+          type: string
+        codigo:
+          type: string
+        nome:
+          type: string
+        logradouro:
+          type: string
+        nomeCidade:
+          type: string
+        codigoEstado:
+          type: string
+        nomeEstado:
+          type: string
+        codigoPais:
+          type: string
+        nomePais:
+          type: string
+        cep:
+          type: string
+    TributoRequest:
+      type: object
+      properties:
+        codigoNCM:
+          type: string
+        codigoPais:
+          type: string
+        codigoFundamento:
+          type: string
+    ValorMercadoriaLocalEmbarqueCover:
+      type: object
+      properties:
+        valorTotalMercadoriaLocalEmbarqueDolar:
+          type: number
+        valorTotalMercadoriaLocalEmbarqueReal:
+          type: number
+        valorTotalMercadoriaLocalDescargaReal:
+          type: number
+    ExportadorEstrangeiroCover:
+      type: object
+      properties:
+        relacaoExportadorFabricante:
+          type: string
+        vinculacaoCompradorVendedor:
+          type: string
+        codigoOperadorExportador:
+          type: string
+        paisOperadorExportador:
+          type: string
+    PalavraChaveCover:
+      type: object
+      properties:
+        codigo:
+          type: integer
+          format: int64
+        valor:
+          type: string
+    TributoAplicadoCover:
+      type: object
+      properties:
+        tributo:
+          $ref: '#/components/schemas/ItemDominioGenericCoverString'
+        regime:
+          $ref: '#/components/schemas/ItemDominioGenericCoverString'
+        fundamentoLegal:
+          $ref: '#/components/schemas/ItemDominioGenericCoverString'
+        atributosDinamicos:
+          type: array
+          items:
+            $ref: '#/components/schemas/AtributoTributoCover'
+    TributoCalculadoCover:
+      type: object
+      properties:
+        imposto:
+          $ref: '#/components/schemas/ItemDominioGenericCoverString'
+        valorCalculado:
+          type: number
+        valorAReduzir:
+          type: number
+        valorSuspenso:
+          type: number
+        valorDevido:
+          type: number
+        impostoARecolher:
+          type: number
+    FiltroPesquisaDiagnosticoCover:
+      type: object
+      properties:
+        cpf:
+          type: string
+        importador:
+          type: string
+        inicio:
+          type: string
+          format: date
+        fim:
+          type: string
+          format: date
+    AtributoDinamicoRequest:
+      type: object
+      properties:
+        codigoNCM:
+          type: string
+        codigoPais:
+          type: string
+        tributoAplicado:
+          $ref: '#/components/schemas/TributoAplicadoCover'
+        codigoAtributoAlvo:
+          type: string
+    IdentificacaoImportador:
+      type: object
+      properties:
+        cpfCnpj:
+          $ref: '#/components/schemas/ItemDominioGenericCoverString'
+        endereco:
+          $ref: '#/components/schemas/EnderecoCover'
